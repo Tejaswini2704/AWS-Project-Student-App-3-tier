@@ -105,7 +105,7 @@ bash
 ```
 - create key pair, so we can access private instnaces
 - go to downloads in your local machine, copy three-tier.pem file content
-- create new file in the instance
+- create new file in the instance and paste here
 ```
 suddo vim three-tier.pem
 ```
@@ -280,9 +280,9 @@ proxy_pass http://private-IP-tomcat:8080/student/;
 systemctl start nginx
 ```
 - go to browser hit the public IP of nginx-server
-![Screenshot 2025-06-25 000722](https://github.com/user-attachments/assets/b8552116-7354-4df1-8b14-ed38ea4298ec)
 
 ![Screenshot 2025-06-25 000641](https://github.com/user-attachments/assets/196548fe-edfc-4b34-abe6-85fa55e04ef6)
+![Screenshot 2025-06-25 000722](https://github.com/user-attachments/assets/b8552116-7354-4df1-8b14-ed38ea4298ec)
 
 ![Screenshot 2025-06-25 000549](https://github.com/user-attachments/assets/2d9eb9e8-8c7f-4e3f-b76f-a90c1cce0bd9)
 
