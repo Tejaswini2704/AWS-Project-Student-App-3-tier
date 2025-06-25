@@ -244,6 +244,7 @@ vim context.xml
                url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE-studentapp"/>
 ```
 ![Screenshot 2025-06-24 233536](https://github.com/user-attachments/assets/0ac38508-8e4a-4f2e-8f95-bd402ccf5e01)
+- here remove ``database-name`` and add studentapp
 ```
 cd ..
 ```
