@@ -68,7 +68,7 @@
    - auto assign public IP : disable
    - security group: three-tier-project-sec
    - launch instance
-- ** Instance-3**
+- **Instance-3**
    - name: private-database-server
    - AMI: Amazon linu
    - instance type: t2.micro
@@ -110,7 +110,7 @@ bash
 suddo vim three-tier.pem
 ```
 ```
-chmod 4000 three-tier.pem
+chmod 400 three-tier.pem
 ```
 - now ssh into database sever
 ```
@@ -206,10 +206,10 @@ cd /opt
 cd apache-tomcat-9.0.105
 ```
 ```
-sudo cd webapps
+cd webapps
 ```
 ```
- sudo curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
+ curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
 ```
 ```
 cd ..
@@ -218,7 +218,7 @@ cd ..
 cd /lib
 ```
 ```
-sudo curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
+curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ```
 - Modify context.xml file
 ```
