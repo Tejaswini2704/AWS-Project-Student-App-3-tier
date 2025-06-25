@@ -225,12 +225,6 @@ curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 cd ..
 ```
 ```
-cd /opt
-```
-```
-cd apache-tomcat-9.0.105
-```
-```
 cd conf
 ```
 ```
