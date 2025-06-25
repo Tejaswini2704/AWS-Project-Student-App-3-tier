@@ -235,7 +235,7 @@ vim context.xml
  <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
                maxTotal="100" maxIdle="30" maxWaitMillis="10000"
                username="admin" password="Passwd123$" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE-studentapp"/>
+               url="jdbc:mysql://DB-ENDPOINT:3306/studentapp"/>
 ```
 ![Screenshot 2025-06-24 233536](https://github.com/user-attachments/assets/0ac38508-8e4a-4f2e-8f95-bd402ccf5e01)
 - here remove ``database-name`` and add studentapp
