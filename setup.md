@@ -1,5 +1,5 @@
 # Three tier student app setup
-## VPC Setup
+# $\color{orange} \textbf {VPC Setup} $
 - **Create VPC**
 - Go to AWS Console -> go to VPC
 - click on "create VPC"
@@ -7,35 +7,35 @@
    - name: vpc-three-tier
    - IPv4 CIDR: 192.168.0.0/16
    - create vpc
-- **Subnet Creation**
+#  $$\color{green} \textbf {Subnet Creation} $$
 - create subnet
 - VPC ID: select vpc-three-tier
-- Subnet-1
+## **Subnet-1**
    - name: public-subnet-nginx
    - Availability Zone (AZ) : ap-southest-1a
    - IPv4 VPC CIDR block:  192.168.0.0/16
    - IPv4 subnet CIDR block :192.168.0.0/23
-- subnet-2
+## **subnet-2**
    - name: private-subnet-tomcat
    - IPv4 VPC CIDR block:  192.168.0.0/16
    -  IPv4 subnet CIDR block :192.168.2.0/23
-- subnet-3
+## **subnet-3**
    - name: private-subnet-database
    - IPv4 VPC CIDR block:  192.168.0.0/16
    -  IPv4 subnet CIDR block :192.168.4.0/23
 - click on "create subnet"
-- **Internet Gateway Creation**
+# $$\color{green} \textbf {Internet Gateway Creation} $$
    -  name: igw-three-tier-project
    -  clikc on "create internet gateway"
    -  attach "vpc-three-tier" VPC.
-- **NAT Gateway Creation**
+  ## $$\color{green} \textbf {NAT Gateway Creation} $$
    - name: nat-three-tier
    - subnet: public-subnet-nginx
    - Elastic IP: allocate elastic IP
    - click on "create NAT gateway"
-- VPC Resource Map
+# $$\color{green} \textbf {VPC Resource Map} $$
 ![Screenshot 2025-06-24 211640](https://github.com/user-attachments/assets/4978a00d-3da3-4873-9ddb-8b681b0a2743)
-- **Create Security Group**
+# $$\color{green} \textbf {Create Security Group} $$
 - name: three-tier-project-sec
 - Description: allow traffic for project
 - VPC: vpc-three-tier
@@ -46,9 +46,9 @@
    - custom TCP : 8080 : anywhere-IPv4
 - click on "create Security group"
 
-## EC2 Setup
+# $$\color{green} \textbf {EC2 Setup} $$
 - go to EC2 to launch instances
-- **Instance-1**
+## **Instance-1**
    - name: public-nginx-server
    - AMI: Amazon linux
    - instacne type : tc.micro
@@ -58,7 +58,7 @@
    - auto assign public IP : enabel
    - security group : three-tier-project-sec
    - launch instance
-- **Instance-2**
+## **Instance-2**
    - name: private-tomcat-server
    - AMI: Amazon linu
    - instance type: t2.micro
@@ -68,7 +68,7 @@
    - auto assign public IP : disable
    - security group: three-tier-project-sec
    - launch instance
-- **Instance-3**
+## **Instance-3**
    - name: private-database-server
    - AMI: Amazon linu
    - instance type: t2.micro
@@ -78,7 +78,7 @@
    - auto assign public IP : disable
    - security group: three-tier-project-sec
    - launch instance 
-## Database creation
+# $$\color{green} \textbf {Database creation} $$
 - create Database in RDS
 - database creation method : standard create
 - engine option: MariaDB
@@ -94,11 +94,14 @@
 - Additional VPC security group: three-tier-project-sec
 - click on "create database"
 
-## Connect to public-nginx-serve
+# $$\color{green} \textbf {Connect to public-nginx-serve} $$
 - connect to instnace
+```
+sudo -i
+```
 - change hostname
 ```
-sudo hostname nginx
+hostname nginx
 ```
 ```
 bash
@@ -107,12 +110,12 @@ bash
 - go to downloads in your local machine, copy three-tier.pem file content
 - create new file in the instance and paste here
 ```
-suddo vim three-tier.pem
+vim three-tier.pem
 ```
 ```
 chmod 400 three-tier.pem
 ```
-- now ssh into database sever
+# $$\color{green} \textbf {now ssh into database sever} $$
 ```
 ssh -i three-tier.pem ec2-user@<ip_of _database_server>
 ```
@@ -123,17 +126,20 @@ sudo hostname database
 ```
 bash
 ```
+```
+sudo -i
+```
 - install mariaDB
 ```
-sudo yum install mariadb105-server -y
+yum install mariadb105-server -y
 ```
 ```
-sudo systemctl start mariadb
+systemctl start mariadb
 ```
 ```
-sudo systemctl enable mariadb
+systemctl enable mariadb
 ```
-- login to database
+# $$\color{green} \textbf {login to database} $$
 - go to database , cpoy the endpoint of database
 ```
 mysql -h rds-endpoint   -u admin -pPasswd123$
@@ -172,7 +178,7 @@ exit
 ```
 exit
 ```
-- log in to tomcat server
+# $$\color{green} \textbf {log in to tomcat server} $$
 ```
 ssh -i three-tier.pem ec2-user@<ip_of_tomcat_server>
 ```
@@ -220,7 +226,7 @@ cd /lib
 ```
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
 ```
-- Modify context.xml file
+# $$\color{green} \textbf {Modify context.xml file} $$
 ```
 cd ..
 ```
@@ -251,7 +257,7 @@ chmod +x catalina.sh
 ```
 ./catalina.sh start
 ```
-- Back ot public-nginx-server
+# $$\color{green} \textbf {Back ot public-nginx-server} $$
 ```
 sudo -i
 ```
@@ -274,12 +280,11 @@ proxy_pass http://private-IP-tomcat:8080/student/;
 ```
 systemctl start nginx
 ```
-- go to browser hit the public IP of nginx-server
+# $$\color{green} \textbf {go to browser hit the public IP of nginx-server} $$
 
-![Screenshot 2025-06-25 000641](https://github.com/user-attachments/assets/196548fe-edfc-4b34-abe6-85fa55e04ef6)
-![Screenshot 2025-06-25 000722](https://github.com/user-attachments/assets/b8552116-7354-4df1-8b14-ed38ea4298ec)
+![Screenshot 2025-06-25 214316](https://github.com/user-attachments/assets/1e839fd1-6fb7-47a5-9938-4625208feca4)
 
-![Screenshot 2025-06-25 000549](https://github.com/user-attachments/assets/2d9eb9e8-8c7f-4e3f-b76f-a90c1cce0bd9)
+![Screenshot 2025-06-25 214415](https://github.com/user-attachments/assets/4537ce92-7ddd-4d22-b891-d9a16e722899)
 
 
 
