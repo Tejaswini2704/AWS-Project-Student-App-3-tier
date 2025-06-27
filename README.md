@@ -1,6 +1,7 @@
 # 🏗️ AWS 3-Tier Student Management App
 
-This project is a hands-on implementation of a **3-tier architecture** using **Amazon Web Services (AWS)**. It demonstrates how to set up a **web-based Student Management System** using core cloud components including a web server (NGINX), application server (Apache Tomcat), and database server (MySQL).
+- This project is a hands-on implementation of a **3-tier architecture** using **Amazon Web Services (AWS)**.
+- It demonstrates how to set up a **web-based Student Management System** using core cloud components including a web server (NGINX), application server (Apache Tomcat), and database server (MySQL).
 
 ---
 
